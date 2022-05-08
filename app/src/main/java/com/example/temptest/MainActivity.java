@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -50,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         mapFragment.getMapAsync(this);
 
-
     }
 
 
@@ -64,6 +65,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         uiSettings.setLocationButtonEnabled(true);
 
     //   context_main = this;
+
+        Animation animTransRight = AnimationUtils.loadAnimation(
+                this,R.anim.translate_right);
+        Animation animTransLeft = AnimationUtils.loadAnimation(
+                this,R.anim.translate_left);
+        Animation animTransUp = AnimationUtils.loadAnimation(
+                this,R.anim.translate_up);
+        Animation animTransDown = AnimationUtils.loadAnimation(
+                this,R.anim.translate_down);
 
         //마커 생성
         for (int i = 0; i < 3; i++) {
@@ -90,7 +100,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         markerView2 = findViewById(R.id.ViewM2);
         markerView3 = findViewById(R.id.ViewM3);
 
+
         marker.get(0).setOnClickListener(overlay -> {
+            markerView1.startAnimation(animTransUp);
             markerView1.setVisibility(View.VISIBLE);
             if (markerView2.getVisibility() == markerView1.getVisibility() ||
                     markerView3.getVisibility() == markerView1.getVisibility()) {
@@ -100,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             return true;
         });
         marker.get(1).setOnClickListener(overlay -> {
+            markerView2.startAnimation(animTransUp);
             markerView2.setVisibility(View.VISIBLE);
             if (markerView1.getVisibility() == markerView2.getVisibility() ||
                     markerView3.getVisibility() == markerView2.getVisibility()) {
@@ -109,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             return true;
         });
         marker.get(2).setOnClickListener(overlay -> {
+            markerView3.startAnimation(animTransUp);
             markerView3.setVisibility(View.VISIBLE);
             if (markerView1.getVisibility() == markerView3.getVisibility() ||
                     markerView2.getVisibility() == markerView3.getVisibility()) {
@@ -147,13 +161,22 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuView.setVisibility(View.VISIBLE);
+
+                if(menuView.getVisibility()==View.VISIBLE) {
+                    menuView.startAnimation(animTransLeft);
+                    menuView.setVisibility(View.GONE);
+                }
+                else{
+                    menuView.startAnimation(animTransRight);
+                    menuView.setVisibility(View.VISIBLE);
+                }
             }
         });
         //메뉴 닫기
         btnMenuConClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuView.startAnimation(animTransLeft);
                 menuView.setVisibility(View.GONE);
             }
         });
@@ -163,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnBack1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                markerView1.startAnimation(animTransDown);
                 markerView1.setVisibility(View.GONE);
             }
         });
@@ -170,6 +194,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnBack2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                markerView2.startAnimation(animTransDown);
                 markerView2.setVisibility(View.GONE);
             }
         });
@@ -177,6 +202,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         btnBack3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                markerView3.startAnimation(animTransDown);
                 markerView3.setVisibility(View.GONE);
             }
         });
@@ -197,6 +223,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (((TextView) view).getText().toString() == binLoc1.getText()) {
                     CameraUpdate movePostion = CameraUpdate.scrollTo(marker.get(0).getPosition());
                     naverMap.moveCamera(movePostion);
+                    markerView1.startAnimation(animTransUp);
                     markerView1.setVisibility(View.VISIBLE);
                     if (markerView2.getVisibility() == markerView1.getVisibility() ||
                             markerView3.getVisibility() == markerView1.getVisibility()) {
@@ -207,6 +234,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (((TextView) view).getText().toString() == binLoc2.getText()) {
                     CameraUpdate movePostion = CameraUpdate.scrollTo(marker.get(1).getPosition());
                     naverMap.moveCamera(movePostion);
+                    markerView2.startAnimation(animTransUp);
                     markerView2.setVisibility(View.VISIBLE);
                     if (markerView1.getVisibility() == markerView2.getVisibility() ||
                             markerView3.getVisibility() == markerView2.getVisibility()) {
@@ -217,6 +245,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (((TextView) view).getText().toString() == binLoc3.getText()) {
                     CameraUpdate movePostion = CameraUpdate.scrollTo(marker.get(2).getPosition());
                     naverMap.moveCamera(movePostion);
+                    markerView3.startAnimation(animTransUp);
                     markerView3.setVisibility(View.VISIBLE);
                     if (markerView1.getVisibility() == markerView3.getVisibility() ||
                             markerView2.getVisibility() == markerView3.getVisibility()) {

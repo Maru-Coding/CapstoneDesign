@@ -3,9 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_announce_detail.xml" value="0.17552083333333332" />
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_announce_register.xml" value="0.17552083333333332" />
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_announcement.xml" value="0.17552083333333332" />
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_comment.xml" value="0.17552083333333332" />
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_csactivity.xml" value="0.17552083333333332" />
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_detail.xml" value="0.17552083333333332" />
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_details.xml" value="0.17552083333333332" />
         <entry key="..\:/temptest/app/src/main/res/layout/activity_info.xml" value="0.1" />
         <entry key="..\:/temptest/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_rq.xml" value="0.17552083333333332" />
         <entry key="..\:/temptest/app/src/main/res/layout/activity_signup.xml" value="0.22" />
+        <entry key="..\:/temptest/app/src/main/res/layout/activity_splash.xml" value="0.17552083333333332" />
       </map>
     </option>
   </component>
