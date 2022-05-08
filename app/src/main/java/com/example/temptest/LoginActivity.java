@@ -69,7 +69,10 @@ public class LoginActivity extends AppCompatActivity {
                             if (success)
                             {
                                 String msg = jsonObject.getString("id");
-                                Toast.makeText(getApplicationContext(), "ID :" + msg, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "로그인 성공. ID :" + msg, Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                intent.putExtra("id", id);
+                                startActivity(intent);
                             }
 
                             else
