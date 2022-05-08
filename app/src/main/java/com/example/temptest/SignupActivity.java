@@ -37,12 +37,14 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String id = signup_idInput.getText().toString();
                 String pw = signup_pwInput.getText().toString();
+                Toast.makeText(getApplicationContext(), "회원가입 눌렀다", Toast.LENGTH_SHORT).show();
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try
                         {
+                            Toast.makeText(getApplicationContext(), "회원가입 눌렀다2", Toast.LENGTH_SHORT).show();
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
 
@@ -69,9 +71,9 @@ public class SignupActivity extends AppCompatActivity {
                     }
                 };
 
-                RegisterRequestActivity registerRequestActivity = new RegisterRequestActivity(id, pw, responseListener);
+                SignupRequestActivity signupRequestActivity = new SignupRequestActivity(id, pw, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(SignupActivity.this);
-                queue.add(registerRequestActivity);
+                queue.add(signupRequestActivity);
             }
         });
     }

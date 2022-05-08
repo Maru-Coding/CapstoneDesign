@@ -28,7 +28,7 @@
         <!--1-->
 
         <!--2-->
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".SignupActivity" />
         <!--2-->
 
         <activity

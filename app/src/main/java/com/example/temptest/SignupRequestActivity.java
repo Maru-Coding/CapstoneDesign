@@ -7,14 +7,14 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterRequestActivity extends StringRequest {
+public class SignupRequestActivity extends StringRequest {
 
     // 서버 URL 설정 (PHP 파일 연동)
     final static private String URL = "ec2-13-125-205-121.ap-northeast-2.compute.amazonaws.com/Resitest.php";
 
     private Map<String, String> map;
 
-    public RegisterRequestActivity(String id, String pw, Response.Listener<String> listener)
+    public SignupRequestActivity(String id, String pw, Response.Listener<String> listener)
     {
         super(Method.POST, URL, listener, null);
 
