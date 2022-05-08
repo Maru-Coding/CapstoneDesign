@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class LoginRequestActivity extends StringRequest {
     // 서버 URL 설정 (PHP 파일 연동)
-    final static private String URL = "ec2-13-125-205-121.ap-northeast-2.compute.amazonaws.com/Logtest.php";
+    final static private String URL = "http://13.125.205.121/Logtest.php";
 
     private Map<String, String> map;
 

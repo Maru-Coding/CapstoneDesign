@@ -12,7 +12,8 @@
         android:label="TT"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Temptest">
+        android:theme="@style/Theme.Temptest"
+        android:usesCleartextTraffic="true">
 
         <!--1-->
         <activity

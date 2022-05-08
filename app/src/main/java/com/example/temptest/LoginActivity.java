@@ -79,17 +79,22 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
 
-                        catch(JSONException e)
+                        catch (JSONException e)
                         {
                             e.printStackTrace();
                             Toast.makeText(getApplicationContext(), "예외 1", Toast.LENGTH_SHORT).show();
                             return;
                         }
+
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
                     }
                 };
 
                 LoginRequestActivity loginRequestActivity = new LoginRequestActivity(id, pw, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
                 queue.add(loginRequestActivity);
             }
         });
