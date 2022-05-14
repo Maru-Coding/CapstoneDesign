@@ -155,8 +155,7 @@ public class AnnouncementActivity extends AppCompatActivity {
 // String userid = params[0];
 // String passwd = params[1];
 
-            String server_url = "http://15.164.252.136/load_board.php";  //수정 필요
-
+            String server_url = "http://13.125.205.121/annLoadBoard.php";
 
             URL url;
             String response = "";

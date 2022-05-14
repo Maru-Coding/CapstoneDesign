@@ -92,7 +92,7 @@ public class AnnounceRegister extends AppCompatActivity {
             String title = params[1];
             String content = params[2];
 
-            String server_url = "http://15.164.252.136/reg_board.php"; //수정 필요
+            String server_url = "http://13.125.205.121//annReg.php";
 
 
             URL url;
